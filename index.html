@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>your_handle // Portfolio</title>
+<title>walker // Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -13,8 +13,8 @@
     --border:   #1e1e1e;
     --text:     #c9c9c9;
     --muted:    #555;
-    --accent:   #7fffb4;   /* terminal green */
-    --accent2:  #5ec4ff;   /* cool blue */
+    --accent:   #7fffb4;
+    --accent2:  #5ec4ff;
     --warn:     #ffd080;
     --font:     'JetBrains Mono', monospace;
   }
@@ -26,13 +26,29 @@
     color: var(--text);
     font-family: var(--font);
     line-height: 1.75;
-    padding: 3rem 1.25rem 6rem;
+    padding: 1rem 1.25rem 6rem;
     overflow-x: hidden;
   }
 
   .container { max-width: 680px; margin: 0 auto; }
 
-  /* ── Prompt header ── */
+  /* ── Under Construction Banner ── */
+  .construction-banner {
+    border: 1px dashed var(--warn);
+    background: rgba(255, 208, 128, 0.05);
+    padding: 0.8rem;
+    color: var(--warn);
+    font-size: 0.75rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+    animation: pulse-border 2s infinite;
+  }
+  @keyframes pulse-border {
+    50% { border-color: transparent; }
+  }
+
   .prompt { color: var(--muted); font-size: 0.78rem; margin-bottom: 2rem; }
   .prompt span { color: var(--accent); }
 
@@ -100,9 +116,8 @@
   .badge.green  { background: #0d2b1a; color: var(--accent); border: 1px solid #1a4d2e; }
   .badge.blue   { background: #0d1e2b; color: var(--accent2); border: 1px solid #1a3449; }
   .badge.yellow { background: #2b2108; color: var(--warn); border: 1px solid #4d3b10; }
-  .badge.gray   { background: #181818; color: #666; border: 1px solid #222; }
 
-  /* ── Research/Sweep Effect ── */
+  /* ── Activity list ── */
   .writeup {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -117,7 +132,6 @@
   }
   .writeup:first-child { border-top: 1px solid var(--border); }
   
-  /* The Beam */
   .writeup::before {
     content: '';
     position: absolute;
@@ -164,7 +178,7 @@
   }
   .skill-bar-fill {
     height: 100%;
-    width: 0; /* Animated via JS */
+    width: 0; 
     background: var(--accent);
     box-shadow: 0 0 8px rgba(127,255,180,0.4);
     transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
@@ -200,6 +214,16 @@
     display: flex; justify-content: space-between;
   }
 
+  /* ── Status Terminal ── */
+  .terminal-log {
+    margin-top: 2rem;
+    font-size: 0.65rem;
+    color: var(--muted);
+    font-family: var(--font);
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+  }
+
   @media (max-width: 480px) {
     .skills-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 0.5rem; }
@@ -209,109 +233,117 @@
 <body>
 
 <div class="container">
+  
+  <div class="construction-banner">
+    ⚠️ [CAUTION]: SYSTEM_UNDER_CONSTRUCTION // DEPLOYING CPTS MODULES...
+  </div>
+
   <div class="prompt">~/home/projects <span>$</span> whoami<span class="cursor"></span></div>
 
-  <h1>your_handle</h1>
-  <p class="tagline">// security researcher · web application · bug bounty</p>
+  <h1>walker</h1>
+  <p class="tagline">// offensive security enthusiast · cpts candidate · penetration tester</p>
 
   <div class="tags">
-    <span class="tag hi">AppSec</span>
-    <span class="tag hi">API Testing</span>
-    <span class="tag">Auth & Sessions</span>
-    <span class="tag">Access Control</span>
-    <span class="tag">Recon</span>
-    <span class="tag">Automation</span>
+    <span class="tag hi">Active Directory</span>
+    <span class="tag hi">Network Pivoting</span>
+    <span class="tag">Credential Attacks</span>
+    <span class="tag">Web App Pentesting</span>
+    <span class="tag">Python</span>
+    <span class="tag">Linux</span>
   </div>
 
   <div class="links">
-    <a href="#">GitHub</a>
-    <a href="#">HackTheBox</a>
-    <a href="#">TryHackMe</a>
-    <a href="#">LinkedIn</a>
-    <a href="mailto:you@email.com">Email</a>
+    <a href="https://github.com/walkerffx" target="_blank">GitHub</a>
+    <a href="https://profile.hackthebox.com/" target="_blank">HackTheBox</a>
+    <a href="https://tryhackme.com/p/walkerffx" target="_blank">TryHackMe</a>
+    <a href="https://www.linkedin.com/in/abhishek-r-s-13bb7834b/" target="_blank">LinkedIn</a>
   </div>
 
   <!-- About -->
   <section>
-    <div class="section-label">about</div>
+    <div class="section-label">current_status</div>
     <p class="about-text">
-      Security researcher focused on web apps, APIs, and recon automation. 
-      Comfortable with Burp Suite, manual testing, and writing technical reports.
+      Aspiring Penetration Tester focused on deep-dive offensive security. Currently 
+      advancing through the <strong>HTB Certified Penetration Testing Specialist (CPTS)</strong> 
+      curriculum. Passionate about Active Directory exploitation, network pivoting, and 
+      crafting custom Python tools for automation.
     </p>
   </section>
 
   <!-- Stats -->
   <div class="stats">
-    <div><span class="stat-num">12</span><span class="stat-label">vulns found</span></div>
-    <div><span class="stat-num">2+</span><span class="stat-label">years active</span></div>
-    <div><span class="stat-num">Top 200</span><span class="stat-label">HTB Rank</span></div>
+    <div><span class="stat-num">45%</span><span class="stat-label">CPTS Progress</span></div>
+    <div><span class="stat-num">CTF</span><span class="stat-label">Active Player</span></div>
+    <div><span class="stat-num">OS</span><span class="stat-label">Linux/Windows Lab</span></div>
   </div>
 
-  <!-- Tooling -->
+  <!-- Path Focus -->
   <section>
-    <div class="section-label">tooling</div>
+    <div class="section-label">learning path</div>
     <div class="project">
       <div class="project-top">
         <div>
-          <div class="project-name">OzzMon — Attack Surface Monitor</div>
-          <div class="project-desc">Continuous recon pipeline on GitHub Actions.</div>
+          <div class="project-name">HTB CPTS Journey</div>
+          <div class="project-desc">Documenting progress as I move towards 100% completion. Current focus: Web App Attacks and Network Pivoting.</div>
         </div>
-        <span class="badge green">open source</span>
+        <span class="badge yellow">45% Comp</span>
       </div>
     </div>
   </section>
 
-  <!-- Research -->
+  <!-- Platforms -->
   <section>
-    <div class="section-label">research</div>
+    <div class="section-label">platforms</div>
     <div id="researchList">
-      <a href="#" class="writeup">
+      <a href="https://profile.hackthebox.com/" class="writeup" target="_blank">
         <div>
-          <div class="wu-title">Account Takeover via Invitation Links</div>
-          <div class="wu-meta">Bug Bounty · 2025</div>
+          <div class="wu-title">HackTheBox Academy & Labs</div>
+          <div class="wu-meta">Active Directory & Network Pivoting Focus</div>
         </div>
-        <div class="wu-tags"><span class="badge yellow">$200</span><span class="badge blue">web</span></div>
+        <div class="wu-tags"><span class="badge blue">Offensive</span></div>
       </a>
-      <a href="#" class="writeup">
+      <a href="https://tryhackme.com/p/walkerffx" class="writeup" target="_blank">
         <div>
-          <div class="wu-title">IDOR in Production API</div>
-          <div class="wu-meta">Private Program · 2025</div>
+          <div class="wu-title">TryHackMe Profile</div>
+          <div class="wu-meta">Offensive Learning Paths</div>
         </div>
-        <div class="wu-tags"><span class="badge gray">P3</span><span class="badge blue">api</span></div>
+        <div class="wu-tags"><span class="badge green">Practice</span></div>
       </a>
     </div>
   </section>
 
-  <!-- Skills with Progress Bars -->
+  <!-- Skills -->
   <section>
-    <div class="section-label">skills</div>
+    <div class="section-label">technical_skills</div>
     <div class="skills-grid">
-      <!-- Skill 1 -->
       <div class="skill-box">
-        <div class="skill-info"><span>Web App Sec</span><span class="skill-val">90%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="90%"></div></div>
+        <div class="skill-info"><span>Active Directory</span><span class="skill-val">50%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="50%"></div></div>
       </div>
-      <!-- Skill 2 -->
       <div class="skill-box">
-        <div class="skill-info"><span>API Penetration</span><span class="skill-val">85%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="85%"></div></div>
+        <div class="skill-info"><span>Network Pivoting</span><span class="skill-val">45%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="45%"></div></div>
       </div>
-      <!-- Skill 3 -->
       <div class="skill-box">
-        <div class="skill-info"><span>Python Automation</span><span class="skill-val">75%</span></div>
+        <div class="skill-info"><span>Web Application Sec</span><span class="skill-val">55%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="55%"></div></div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-info"><span>Python (Offensive)</span><span class="skill-val">75%</span></div>
         <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="75%"></div></div>
       </div>
-      <!-- Skill 4 -->
-      <div class="skill-box">
-        <div class="skill-info"><span>Network Recon</span><span class="skill-val">80%</span></div>
-        <div class="skill-bar-bg"><div class="skill-bar-fill" data-percent="80%"></div></div>
-      </div>
     </div>
   </section>
 
+  <div class="terminal-log">
+    [DEBUG] Loading latest lab write-ups...<br>
+    [DEBUG] Syncing HTB progress...<br>
+    [INFO] 45% CPTS modules cached locally.
+  </div>
+
   <footer>
-    <span>your_handle · 2026</span>
-    <span>built with html + css</span>
+    <span>walker // 2026</span>
+    <span>v1.0.45-beta</span>
   </footer>
 </div>
 
@@ -319,7 +351,6 @@
 <div id="cur-ring"></div>
 
 <script>
-  // 1. Custom Cursor Logic
   const dot = document.getElementById('cur-dot');
   const ring = document.getElementById('cur-ring');
   let mx = -100, my = -100, rx = -100, ry = -100;
@@ -344,7 +375,6 @@
     el.addEventListener('mouseleave', () => document.body.classList.remove('cur-hover'));
   });
 
-  // 2. Skills Animation (Triggers when page loads)
   window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       document.querySelectorAll('.skill-bar-fill').forEach(bar => {
@@ -353,8 +383,6 @@
     }, 500);
   });
 
-  // 3. Automatic Sweep Effect
-  // Randomly selects a research item to "sweep" every 3 seconds
   setInterval(() => {
     const items = document.querySelectorAll('.writeup');
     const target = items[Math.floor(Math.random() * items.length)];
